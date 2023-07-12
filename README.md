@@ -11,7 +11,7 @@ O uso de um keylogger é legalmente e eticamente questionável. Este código é 
 1. Instale as dependências necessárias com o comando:
 
     ```shell
-    pip install -r requirements.txt
+    pip install pynput==1.7.4
     ```
 
 2. Substitua as constantes `EMAIL_ADDRESS` e `EMAIL_PASSWORD` no script `keylogger.py` pelas suas informações de login de e-mail.
